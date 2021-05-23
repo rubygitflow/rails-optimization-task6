@@ -2,7 +2,7 @@ p "1/9 Creating Organizations"
 
 3.times do
   Organization.create!(
-    name: Faker::SiliconValley.company,
+    name: Faker::Company.name,
     summary: Faker::Company.bs,
     remote_profile_image_url: logo = Faker::Company.logo,
     nav_image: logo,
@@ -25,7 +25,7 @@ User.clear_index!
 10.times do |i|
   user = User.create!(
     name: name = Faker::Name.unique.name,
-    summary: Faker::Lorem.paragraph_by_chars(199, false),
+    summary: Faker::Lorem.paragraph_by_chars(100, false),
     profile_image: File.open("#{Rails.root}/app/assets/images/#{rand(1..40)}.png"),
     website_url: Faker::Internet.url,
     twitter_username: Faker::Internet.username(name),
@@ -36,7 +36,7 @@ User.clear_index!
     password: "password",
   )
 
-  user.add_role(roles[rand(0..5)]) # includes chance of having no role
+  user.add_role(roles[rand(0...5)]) # includes chance of having no role
 
   Identity.create!(
     provider: "twitter",

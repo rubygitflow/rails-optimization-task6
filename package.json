@@ -16,7 +16,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && npm run precommit"
     }
   },
   "lint-staged": {
@@ -26,7 +26,7 @@
       "git add"
     ],
     "{app,spec}/**/*.rb": [
-      "bin/rubocop --require rubocop-rspec --safe-auto-correct",
+      "bin/rubocop --require rubocop-rspec --auto-correct",
       "git add"
     ],
     "app/**/*.html.erb": [
@@ -64,7 +64,7 @@
     "@storybook/react": "^3.4.11",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.4.2",
-    "eslint": "^5.15.1",
+    "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^4.1.0",
@@ -99,7 +99,8 @@
     "prop-types": "^15.7.2",
     "pusher-js": "^4.4.0",
     "twilio-video": "^1.15.2",
-    "web-share-wrapper": "^0.2.1"
+    "web-share-wrapper": "^0.2.1",
+    "yarn": "^1.22.10"
   },
   "jest": {
     "setupFiles": [
